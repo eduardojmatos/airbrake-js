@@ -1,4 +1,4 @@
-/*! airbrake-js v1.4.3 */
+/*! airbrake-js v1.4.4 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -109,6 +109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 function makeErrorHandler(client) {
     return function errorHandler(err, req, _res, next) {
         var url = req.protocol + '://' + req.headers['host'] + req.path;
+        console.log('Airbrake Req:', req);
         var notice = {
             error: err,
             context: {
